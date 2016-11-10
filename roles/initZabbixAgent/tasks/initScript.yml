@@ -1,0 +1,10 @@
+---
+- name: Create Script Dir
+  file:  path={{item}} state=directory
+  with_items:
+    - "{{zabbixConfPath}}/script"
+
+- name: Copy Script To Remote Server
+  template: src={{item}} dest={{zabbixConfPath}}/script
+  with_items:
+    - "{{zabbixScriptList}}"

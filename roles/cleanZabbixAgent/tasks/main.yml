@@ -1,0 +1,5 @@
+---
+
+- name: Install Zabbix Agent
+  include: cleanZabbixAgent.yml
+

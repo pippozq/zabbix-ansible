@@ -1,0 +1,11 @@
+---
+
+needScript: true
+
+userParameterList:
+   - "http.status[*],thon {{zabbixConfPath}}/script/httpMonitor.py $1"
+
+zabbixScriptList:
+   - "httpMonitor.py"
+
+
