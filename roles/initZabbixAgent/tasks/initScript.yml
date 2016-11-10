@@ -1,10 +1,10 @@
 ---
 - name: Create Script Dir
-  file:  path={{item}} state=directory
+  file:  path={{item}} state=directory owner={{zabbixUser}} group={{zabbixGroup}} mode="u=rwx,g=r,o=r"
   with_items:
     - "{{zabbixConfPath}}/script"
 
 - name: Copy Script To Remote Server
-  template: src={{item}} dest={{zabbixConfPath}}/script
+  template: src={{item}} dest={{zabbixConfPath}}/script owner={{zabbixUser}} group={{zabbixGroup}} mode="u=rwx,g=r,o=r"
   with_items:
     - "{{zabbixScriptList}}"

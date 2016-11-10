@@ -24,6 +24,7 @@
      #config the zabbix-agent configuration when config is true
      config: true
   vars_files:
+    - vars/zabbixBasic.yml
     - vars/slave2.yml
   user: root
   roles:
