@@ -1,0 +1,16 @@
+---
+- name: Init Zabbix Agent
+  hosts: zabbix_agent
+  #define variable for zabbix
+  vars:
+     #install zabbix agent when install is true
+     install: true
+     #config the zabbix-agent configuration when config is true
+     config: true
+  vars_files:
+    - vars/zabbix_basic.yml
+    - vars/zabbix_agent.yml
+  user: root
+  roles:
+   - init_zabbix_agent
+   - service

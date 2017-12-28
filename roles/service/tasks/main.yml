@@ -1,0 +1,8 @@
+---
+- name: Start Service
+  systemd:
+    name: "{{item}}"
+    state: restarted
+    enabled: yes
+  with_items:
+    - '{{services}}'

@@ -1,0 +1,18 @@
+---
+- name: Init Zabbix Server
+  hosts: zabbix_server
+  #define variable for zabbix
+  vars:
+     #install zabbix server when install is true
+     install: true
+     #config the zabbix-server configuration when config is true
+     config: true
+  vars_files:
+    - vars/zabbix_basic.yml
+    - vars/zabbix_server.yml
+  user: root
+  roles:
+   - basic
+   - postgres
+   - init_zabbix_server
+   - service

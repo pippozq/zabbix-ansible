@@ -1,0 +1,6 @@
+---
+- name: Redhat
+  include: redhat_agent.yml
+  when: ansible_os_family == 'RedHat'
+
+

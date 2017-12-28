@@ -1,0 +1,15 @@
+---
+- name: Import Zabbix RPM Key 
+  rpm_key: state=present key={{zabbix_key_url}}
+  ignore_errors: true
+ 
+- name: Get Zabbix RPM
+  yum: name={{zabbix_rpm_url}} state=present
+
+- name: Install Zabbix Agent
+  yum: name={{item}} state=present
+  with_items:
+     - "{{zabbix_agent_install}}"
+
+
+

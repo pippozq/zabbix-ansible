@@ -1,0 +1,29 @@
+---
+#time zone
+timezone: 'Asia/Shanghai'
+
+#postgres
+db_host: '172.16.251.33'
+db_port: '5432'
+db_name: 'zabbix'
+db_user: 'zabbix'
+db_password: 'nfsetso12fdds9s'
+db_schema: 'zabbix'
+#db_type: mysql,postgres,sqlite, for now, just support postgres
+db_type: 'postgres'
+
+
+# postgres client, default 9.6
+postgres_rpm_url: 'https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-redhat96-9.6-3.noarch.rpm'
+postgres_client: 'postgresql96'
+
+# install list 
+# zabbix-server-mysql,zabbix-server-pgsql, zabbix-server-sqlite3
+zabbix_server_install:
+    - 'zabbix-server-pgsql'
+    - 'zabbix-web-pgsql'
+
+#Start services
+services:
+   - 'zabbix-server'
+   - 'httpd'

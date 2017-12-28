@@ -1,0 +1,15 @@
+---
+
+- name: Template Zabbix conf
+  template: src=zabbix_server.conf dest={{zabbix_conf_path}} mode="u=rw,g=r,o=r"
+
+- name: Template Zabbix Web Conf
+  template: src=zabbix_httpd.conf dest=/etc/httpd/conf.d/zabbix.conf
+  
+
+
+  
+
+  
+  
+  

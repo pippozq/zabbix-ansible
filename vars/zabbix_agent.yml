@@ -1,0 +1,23 @@
+---
+
+need_script: true
+
+user_parameter_list:
+   - "http.status[*],python {{zabbix_conf_path}}/script/http_monitor.py $1"
+
+zabbix_script_list:
+   - "http_monitor.py"
+
+
+#installation of zabbix
+zabbix_agent_install:
+  - "zabbix-agent"
+
+#zabbix master ip
+server_active_ip: 172.16.251.75
+
+#refress time
+refresh_active_checks: 60
+
+services: 
+  - 'zabbix-agent'

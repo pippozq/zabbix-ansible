@@ -1,0 +1,8 @@
+---
+- name: Install Zabbix Server
+  include: install_zabbix_server.yml
+  when: install
+
+- name: Config Zabbix Server
+  include: config_zabbix_server.yml
+  when: config

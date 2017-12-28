@@ -1,0 +1,9 @@
+---
+- name: Install Zabbix Agent
+  include: install_zabbix_agent.yml
+  when: install
+
+- name: Config Zabbix agent
+  include: config_zabbix_agent.yml
+  when: config
+

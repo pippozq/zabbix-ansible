@@ -1,0 +1,22 @@
+---
+- name: Import Zabbix RPM Key 
+  rpm_key: state=present key={{zabbix_key_url}}
+ 
+- name: Get Zabbix RPM
+  yum: name={{zabbix_rpm_url}} state=present
+
+- name: Install Zabbix
+  yum: name={{item}} state=present
+  with_items:
+      - "{{zabbix_server_install}}"
+
+- name: Install python expect
+  pip:
+    name: pexpect
+
+- name: Init Zabbix Server Postgres Database
+  expect: 
+    command: /bin/bash -c "zcat /usr/share/doc/zabbix-server-pgsql*/create.sql.gz | psql -U {{db_user}} -h {{db_host}} {{db_name}}"
+    responses:
+        (?i)Password: '{{db_password}}'
+  when: "db_type == 'postgres'"

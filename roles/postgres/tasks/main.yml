@@ -1,0 +1,6 @@
+---
+- name: Get Postgres RPM
+  yum: name={{postgres_rpm_url}} state=present
+ 
+- name: Install postgres client
+  yum: name={{postgres_client}} state=present
